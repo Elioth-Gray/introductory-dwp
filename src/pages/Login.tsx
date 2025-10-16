@@ -140,7 +140,7 @@ const Login = () => {
           position: 'absolute',
           bottom: 30,
           right: -50,
-          width: '1000px',
+          width: '62.5rem',
           height: 'auto',
           maxHeight: '80vh',
           objectFit: 'contain',

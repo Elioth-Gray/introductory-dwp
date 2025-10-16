@@ -1,6 +1,6 @@
-# E-Commerce Pulsa & Paket Data
+# E-Commerce Pulsa & Paket Data (Prototype)
 
-Aplikasi e-commerce untuk pembelian pulsa dan paket data dengan berbagai provider Indonesia. Dibangun menggunakan React + TypeScript, Material-UI, dan JSON Server sebagai mock backend.
+Aplikasi prototype e-commerce untuk menampilkan daftar pulsa dan paket data dengan berbagai provider Indonesia. Dibangun menggunakan React + TypeScript, Material-UI, dan JSON Server sebagai mock backend untuk menampilkan data statis.
 
 ## 📋 Daftar Isi
 
@@ -20,11 +20,11 @@ Aplikasi e-commerce untuk pembelian pulsa dan paket data dengan berbagai provide
 - **Autentikasi User**: Login/logout dengan validasi
 - **Deteksi Provider**: Otomatis mendeteksi operator berdasarkan nomor telepon
 - **Validasi Nomor**: Hanya nomor yang terdaftar di database yang dapat digunakan
-- **Pembelian Pulsa**: Berbagai nominal pulsa untuk semua operator
-- **Paket Data**: Beragam paket internet dengan masa aktif berbeda
-- **Riwayat Transaksi**: History pembelian dengan filter dan pagination
+- **Daftar Pulsa**: Menampilkan berbagai nominal pulsa untuk semua operator
+- **Daftar Paket Data**: Menampilkan beragam paket internet dengan masa aktif berbeda
+- **Riwayat Transaksi**: Menampilkan history transaksi dengan filter dan pagination
 - **Filter & Search**: Filter berdasarkan provider, status, dan tipe transaksi
-- **Responsive Design**: Tampilan optimal di desktop dan mobile
+- **Desktop Design**: Tampilan dioptimalkan untuk desktop
 - **Skeleton Loading**: Loading state yang user-friendly
 
 ## 🛠 Teknologi yang Digunakan
@@ -44,6 +44,7 @@ Pastikan Anda telah menginstall:
 - **Node.js** (versi 16 atau lebih tinggi)
 - **npm** atau **yarn**
 - **Git**
+- **Desktop/Laptop**: Aplikasi dioptimalkan untuk tampilan desktop
 
 ## 🚀 Instalasi
 
@@ -201,14 +202,14 @@ Berikut adalah daftar nomor telepon yang tersedia, dikelompokkan berdasarkan pro
 
 ## 🏢 Provider yang Didukung
 
-| Provider  | Prefix                       | Fitur              |
-| --------- | ---------------------------- | ------------------ |
-| Telkomsel | 0812, 0813, 0821, 0822       | Pulsa & Paket Data |
-| Indosat   | 0855, 0856, 0857, 0858, 0859 | Pulsa & Paket Data |
-| XL Axiata | 0817, 0818, 0877, 0878, 0879 | Pulsa & Paket Data |
-| Smartfren | 0881-0889, 0998, 0999        | Pulsa & Paket Data |
-| By-U      | 0895, 0896, 0897             | Pulsa & Paket Data |
-| IM3       | 0856, 0857, 0858             | Pulsa & Paket Data |
+| Provider  | Prefix                       | Fitur                     |
+| --------- | ---------------------------- | ------------------------- |
+| Telkomsel | 0812, 0813, 0821, 0822       | Daftar Pulsa & Paket Data |
+| Indosat   | 0855, 0856, 0857, 0858, 0859 | Daftar Pulsa & Paket Data |
+| XL Axiata | 0817, 0818, 0877, 0878, 0879 | Daftar Pulsa & Paket Data |
+| Smartfren | 0881-0889, 0998, 0999        | Daftar Pulsa & Paket Data |
+| By-U      | 0895, 0896, 0897             | Daftar Pulsa & Paket Data |
+| IM3       | 0856, 0857, 0858             | Daftar Pulsa & Paket Data |
 
 ## 📂 Struktur Proyek
 
@@ -303,12 +304,11 @@ JSON Server menyediakan endpoints berikut di `http://localhost:3000`:
 
 ### Purchase History
 
-- `GET /purchase_history` - Riwayat pembelian
+- `GET /purchase_history` - Riwayat transaksi (data statis)
 - `GET /purchase_history?userId={id}` - Filter berdasarkan user
 - `GET /purchase_history?status={status}` - Filter berdasarkan status (`completed`, `pending`, `failed`)
 - `GET /purchase_history?type={type}` - Filter berdasarkan tipe (`credit`, `packet_data`)
 - `GET /purchase_history?operator={provider}` - Filter berdasarkan operator
-- `POST /purchase_history` - Buat transaksi baru
 
 ## 🎯 Cara Menggunakan
 
@@ -324,33 +324,34 @@ JSON Server menyediakan endpoints berikut di `http://localhost:3000`:
 - Sistem akan otomatis mendeteksi provider
 - Nomor akan tersimpan untuk transaksi selanjutnya
 
-### 3. Beli Pulsa
+### 3. Lihat Daftar Pulsa
 
 - Scroll ke section "Paket Pulsa Terbaik"
-- Pilih nominal yang diinginkan
-- Klik "Beli Sekarang"
+- Lihat berbagai nominal yang tersedia
+- Informasi harga dan provider akan ditampilkan
 
-### 4. Beli Paket Data
+### 4. Lihat Daftar Paket Data
 
 - Scroll ke section paket data
-- Pilih paket yang sesuai kebutuhan
-- Klik "Beli Sekarang"
+- Lihat berbagai paket yang tersedia dengan kuota dan masa aktif
+- Informasi harga dan provider akan ditampilkan
 
-### 5. Lihat Riwayat
+### 5. Lihat Riwayat Transaksi
 
 - Klik avatar/nama user di header
 - Pilih "Riwayat Pembelian"
 - Gunakan filter untuk mencari transaksi tertentu
+- Riwayat menampilkan transaksi yang sudah ada di database
 
 ### JSON Server Configuration
 
 File `db.json` berisi:
 
 - 5 user accounts
-- 12 paket pulsa dengan berbagai nominal
-- 16 paket data dengan berbagai kuota
+- 12 paket pulsa dengan berbagai nominal (untuk ditampilkan)
+- 16 paket data dengan berbagai kuota (untuk ditampilkan)
 - 33 nomor telepon untuk testing
-- 25 transaksi sample
+- 25 transaksi sample (data statis untuk ditampilkan di riwayat)
 
 ## 🐛 Troubleshooting
 
@@ -410,12 +411,13 @@ npm install
 
 ## 🎨 UI/UX Features
 
-- **Responsive Design**: Optimal di desktop dan mobile
+- **Desktop Design**: Dioptimalkan untuk tampilan desktop
 - **Skeleton Loading**: Loading state yang smooth
 - **Smooth Scrolling**: Navigasi antar section yang halus
 - **Hover Effects**: Interactive button dan card
 - **Color Coding**: Status transaksi dengan warna berbeda
 - **Provider Icons**: Logo operator yang mudah dikenali
+- **⚠️ Note**: Design belum responsive, hanya untuk desktop dikarenakan keterbatasan waktu
 
 ## 📝 Development Notes
 
@@ -425,6 +427,8 @@ npm install
 - Material-UI untuk consistent design system
 - JSON Server untuk rapid prototyping
 - Vite untuk development experience yang cepat
+- **Catatan**: Ini adalah aplikasi prototype yang menampilkan data statis, bukan sistem pembelian yang sesungguhnya
+- **Limitation**: Design hanya dioptimalkan untuk desktop, belum responsive untuk mobile dikarenakan keterbatasan waktu pengembangan
 
 **Dibuat dengan ❤️ menggunakan React + TypeScript + Vite**
 

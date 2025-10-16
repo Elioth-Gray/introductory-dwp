@@ -85,11 +85,7 @@ const LoginForm = () => {
   return (
     <Box component='form' onSubmit={handleSubmit(onSubmit)}>
       {alert.show && (
-        <Alert
-          severity={alert.severity}
-          sx={{ mb: 3, borderRadius: 2 }}
-          variant='filled'
-        >
+        <Alert severity={alert.severity} sx={{ mb: 3, borderRadius: 2 }}>
           {alert.message}
         </Alert>
       )}
