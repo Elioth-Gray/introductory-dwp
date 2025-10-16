@@ -342,17 +342,6 @@ JSON Server menyediakan endpoints berikut di `http://localhost:3000`:
 - Pilih "Riwayat Pembelian"
 - Gunakan filter untuk mencari transaksi tertentu
 
-## 🔧 Konfigurasi
-
-### Environment Variables
-
-Buat file `.env` di root directory (opsional):
-
-```env
-VITE_API_URL=http://localhost:3000
-VITE_APP_TITLE=E-Commerce Pulsa
-```
-
 ### JSON Server Configuration
 
 File `db.json` berisi:
@@ -436,20 +425,6 @@ npm install
 - Material-UI untuk consistent design system
 - JSON Server untuk rapid prototyping
 - Vite untuk development experience yang cepat
-
-## 🤝 Kontribusi
-
-1. Fork repository
-2. Buat branch fitur (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
-
-## 📄 Lisensi
-
-Project ini menggunakan lisensi MIT. Lihat file `LICENSE` untuk detail lengkap.
-
----
 
 **Dibuat dengan ❤️ menggunakan React + TypeScript + Vite**
 
