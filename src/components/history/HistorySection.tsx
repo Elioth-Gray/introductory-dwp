@@ -62,7 +62,7 @@ const HistorySection = () => {
       type: type !== 'all' ? type : undefined,
       userId: userId || undefined,
     }),
-    [page, provider, status, type, itemsPerPage],
+    [page, provider, status, type, itemsPerPage, userId],
   );
 
   const setQueryParam = useCallback(
